@@ -9,6 +9,14 @@ xset s noblank
 xset s off
 xset -dpms
 
+# Turn off HDMI port // Use -p instead to turn on.
+sudo /opt/vc/bin/tvservice -o
+echo '1-1' |sudo tee /sys/bus/usb/drivers/usb/unbind
+# echo '1-1' |sudo tee /sys/bus/usb/drivers/usb/bind for turn on usb ports.
+
+# Set brightness to half (NEED rpi-backlight).
+sudo rpi-backlight -b 50
+
 # Remove mouse from the Display if idle for longer than 0.5 seconds even if root.
 unclutter -idle 0.5 -root &
 
@@ -17,4 +25,9 @@ sed -i 's/"exited_cleanly":false/"exited_cleanly":true/' /home/pi/.config/chromi
 sed -i 's/"exit_type":"Crashed"/"exit_type":"Normal"/' /home/pi/.config/chromium/Default/Preferences
 
 # Launch Chromium
-/usr/bin/chromium-browser --noerrdialogs --disable-infobars --kiosk https://my.smappee.com/#home https://my.smappee.com/#consumption &
+/usr/bin/chromium-browser --noerrdialogs --disable-infobars --kiosk https://dashboard.smappee.net/ &
+
+while true; do
+	# Nothing, just keep the process alive
+	sleep 1
+done
