@@ -7,9 +7,9 @@
 xhost +local:
 export DISPLAY=:0
 
-xset s noblank
-xset s 0
-xset -dpms
+xset -display :0 s noblank
+xset -display :0 s 0
+xset -display :0 -dpms
 
 # Turn off HDMI port // Use -p instead to turn on.
 sudo /opt/vc/bin/tvservice -o
