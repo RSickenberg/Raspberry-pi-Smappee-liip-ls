@@ -1,0 +1,16 @@
+[Unit]
+Description=Smapee Kiosk
+Wants=graphical.target
+After=graphical.target
+
+[Service]
+Environment=XAUTHORITY=/home/pi/.Xauthority
+# Environment=DISPLAY=:0.0
+Type=simple
+ExecStart=/bin/bash /home/pi/kiosk/kiosk.sh
+Restart=on-abort
+User=pi
+Group=pi
+
+[Install]
+WantedBy=graphical.target
