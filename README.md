@@ -18,4 +18,5 @@ pwd: `pi`
 # Thanks
 - Liip for the opportunity, time and the device.
 
-
+# TODO
+- Create a personal view instead of chromium. (HINT: https://smappee.atlassian.net/wiki/spaces/DEVAPI/pages/526581813/Get+Electricity+Consumption)
